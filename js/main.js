@@ -26,7 +26,7 @@ let neptune_revolution_speed = 0.4
 
 
 function createMaterialArray() {
-  const skyboxImagepaths = ['../img/skybox/space_ft.png', '../img/skybox/space_bk.png', '../img/skybox/space_up.png', '../img/skybox/space_dn.png', '../img/skybox/space_rt.png', '../img/skybox/space_lf.png']
+  const skyboxImagepaths = ['img/skybox/space_ft.png', 'img/skybox/space_bk.png', 'img/skybox/space_up.png', 'img/skybox/space_dn.png', 'img/skybox/space_rt.png', 'img/skybox/space_lf.png']
   const materialArray = skyboxImagepaths.map((image) => {
     let texture = new THREE.TextureLoader().load(image);
     return new THREE.MeshBasicMaterial({ map: texture, side: THREE.BackSide });
