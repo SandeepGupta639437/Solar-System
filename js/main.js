@@ -45,12 +45,16 @@ function loadPlanetTexture(texture, radius, widthSegments, heightSegments, meshT
   const geometry = new THREE.SphereGeometry(radius, widthSegments, heightSegments);
   const loader = new THREE.TextureLoader();
   const planetTexture = loader.load(texture);
-  const material = meshType == 'standard' ? new THREE.MeshStandardMaterial({ map: planetTexture }) : new THREE.MeshBasicMaterial({ map: planetTexture });
+  planetTexture.encoding = THREE.sRGBEncoding; // ✅ add this line
 
-  const planet = new THREE.Mesh(geometry, material);
+  const material = meshType === 'standard'
+    ? new THREE.MeshStandardMaterial({ map: planetTexture })
+    : new THREE.MeshBasicMaterial({ map: planetTexture });
 
-  return planet
+  return new THREE.Mesh(geometry, material);
 }
+
+
 
 
 
